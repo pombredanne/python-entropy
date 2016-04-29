@@ -1,11 +1,12 @@
 #!/usr/bin/env python
+import sys
 from setuptools import setup, Extension
 
 
 entropymodule = Extension(
     'entropy',
     sources=['entropymodule.c'],
-    libraries=['m'],
+    libraries=[] if 'win' in sys.platform else ['m'],
 )
 
 setup(
